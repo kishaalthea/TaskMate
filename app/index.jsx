@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native'
-import { useRouter, Link } from 'expo-router'
+import React from 'react'
+import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { useRouter } from 'expo-router'
 
 
 export default function Home() {
@@ -8,8 +8,12 @@ const router = useRouter()
 
 
 return (
+<SafeAreaView style={styles.safe}>
 <View style={styles.container}>
-<Text style={styles.title}>T A S K M A T E</Text>
+<Text style={styles.brand}>TaskMate</Text>
+
+
+<Text style={styles.tagline}>Plan less. Do more.</Text>
 
 
 <TouchableOpacity
@@ -28,28 +32,57 @@ accessibilityLabel="Go to Signup"
 >
 <Text style={styles.secondaryText}>Sign up</Text>
 </TouchableOpacity>
-
-
-<View style={styles.quickLinks}>
-<Link href="/goals" style={styles.link}>View Your Goals</Link>
-<Link href="/goals/create" style={styles.link}>Add a New Goal</Link>
 </View>
-
-
-<Text style={styles.small}>This demo stores credentials only on the device (AsyncStorage).</Text>
-</View>
+</SafeAreaView>
 )
 }
 
 
 const styles = StyleSheet.create({
-container: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 24 },
-title: { fontSize: 28, marginBottom: 30, letterSpacing: 6 },
-primary: { width: '80%', padding: 16, backgroundColor: '#21cc8d', borderRadius: 10, alignItems: 'center' },
+safe: {
+flex: 1,
+backgroundColor: '#fefbf6',
+},
+container: {
+flex: 1,
+alignItems: 'center',
+justifyContent: 'center',
+padding: 24,
+backgroundColor: '#fefbf6',
+},
+brand: {
+fontSize: 34,
+marginBottom: 12,
+color: '#5d5a88',
+fontWeight: '700',
+},
+tagline: {
+fontSize: 16,
+marginBottom: 48,
+color: '#7b7b7b',
+},
+primary: {
+width: '75%',
+padding: 16,
+backgroundColor: '#a8dadc',
+borderRadius: 14,
+alignItems: 'center',
+marginBottom: 16,
+shadowColor: '#000',
+shadowOpacity: 0.1,
+shadowOffset: { width: 0, height: 2 },
+shadowRadius: 4,
+elevation: 2,
+},
 primaryText: { color: '#fff', fontSize: 16, fontWeight: '600' },
-secondary: { marginTop: 12, width: '80%', padding: 16, borderRadius: 10, alignItems: 'center', borderWidth: 1, borderColor: '#21cc8d' },
-secondaryText: { color: '#21cc8d', fontSize: 16, fontWeight: '600' },
-quickLinks: { marginTop: 28 },
-link: { marginVertical: 8, color: 'white', padding: 12, backgroundColor: '#0b8f6c', borderRadius: 8, overflow: 'hidden', textAlign: 'center' },
-small: { marginTop: 24, color: '#666', textAlign: 'center' }
+secondary: {
+width: '75%',
+padding: 16,
+borderRadius: 14,
+alignItems: 'center',
+borderWidth: 1,
+borderColor: '#a8dadc',
+backgroundColor: '#fff',
+},
+secondaryText: { color: '#5d5a88', fontSize: 16, fontWeight: '600' },
 })
